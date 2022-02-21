@@ -1,0 +1,32 @@
+@import "../reset.scss";
+$notice-bg1: #eeeeee;
+$notice-fg1: tomato;
+$notice-fsz: 20px;
+
+@mixin text() {
+	text-align: center;
+	background-color: $notice-bg1;
+	padding: 10px;
+	border-radius: 10px;
+	width: 80%;
+	color: $notice-fg1;
+	box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.363);
+	font-size: $notice-fsz;
+}
+
+.notice {
+	margin: 10px 0;
+	display: flex;
+	justify-content: center;
+	.text {
+		@include text();
+	}
+	.text-red {
+		@extend .text;
+		background-color: red;
+	}
+	.text-blue {
+		@extend .text;
+		background-color: blue;
+	}
+}

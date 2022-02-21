@@ -1,0 +1,15 @@
+.main {
+	background-image: url("../images/background.jpg");
+	background-size: cover;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+.title {
+	color: #ffb703;
+	font-weight: bold;
+	font-size: 40px;
+}

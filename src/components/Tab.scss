@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		background-color: black;
+	}
+	to {
+		opacity: 1;
+		background-color: white;
+	}
+}
+
+.tabWrapper {
+	border-bottom: 1px solid gray;
+	display: flex;
+	margin-top: 15px;
+	list-style: none;
+	li {
+		padding: 2px 15px;
+		margin: 5px 10px;
+		border-radius: 10px;
+		border: 1px solid gray;
+		cursor: pointer;
+		&:hover {
+			background-color: tomato;
+		}
+	}
+}
+.tab-content.fadeIn {
+	animation: fadeIn 1s ease-in-out;
+}
