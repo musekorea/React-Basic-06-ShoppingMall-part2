@@ -41,10 +41,10 @@ const Tab = () => {
 		<div>
 			<ul className="tabWrapper">
 				<li id="tab1" onClick={handleTabClick}>
-					Tab1
+					상품설명
 				</li>
 				<li id="tab2" onClick={handleTabClick}>
-					Tab2
+					배송정보
 				</li>
 				<li id="tab3" onClick={handleTabClick}>
 					Tab3

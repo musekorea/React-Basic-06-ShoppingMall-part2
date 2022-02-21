@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage.js";
 import DetailPage from "./pages/DetailPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DB from "./db/fakeDB";
+import Cart from "./pages/Cart";
 
 function App() {
 	const [products, setProducts] = useState(() => DB);
@@ -27,6 +28,7 @@ function App() {
 							<DetailPage DB={products} stock={stock} setStock={setStock} />
 						}
 					></Route>
+					<Route path="/cart" element={<Cart></Cart>}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

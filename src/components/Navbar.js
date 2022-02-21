@@ -28,8 +28,8 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link to="#" className="nav-link">
-								Link
+							<Link to="/cart" className="nav-link">
+								Cart
 							</Link>
 						</li>
 						<li className="nav-item dropdown">

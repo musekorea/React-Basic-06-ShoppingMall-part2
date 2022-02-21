@@ -1,0 +1,30 @@
+.cart-container {
+	.table1 {
+		width: 100vh;
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 20px;
+		tr {
+			display: flex;
+			width: 500px;
+			th {
+				border: 1px solid gray;
+				min-width: 80px;
+				text-align: center;
+				&:first-child {
+					text-align: left;
+				}
+			}
+			td {
+				border: 1px solid gray;
+				min-width: 80px;
+				text-align: center;
+				&:first-child {
+					text-align: left;
+				}
+			}
+		}
+	}
+}
