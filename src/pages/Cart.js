@@ -7,20 +7,24 @@ const Cart = (props) => {
 	return (
 		<div className="cart-container">
 			<Navbar></Navbar>
-			<div className="table1">
-				<tr>
-					<th>#</th>
-					<th>상품명</th>
-					<th>수량</th>
-					<th>변경</th>
-				</tr>
-				<tr>
-					<td>{props.id}</td>
-					<td>{props.name}</td>
-					<td>{props.quantity}</td>
-					<td>sample</td>
-				</tr>
-			</div>
+			<table className="table1">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>상품명</th>
+						<th>수량</th>
+						<th>변경</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{props.id}</td>
+						<td>{props.name}</td>
+						<td>{props.quantity}</td>
+						<td>sample</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	);
 };
