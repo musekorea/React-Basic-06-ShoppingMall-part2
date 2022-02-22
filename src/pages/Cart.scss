@@ -11,7 +11,7 @@
 			width: 500px;
 			th {
 				border: 1px solid gray;
-				min-width: 80px;
+				min-width: 120px;
 				text-align: center;
 				&:first-child {
 					text-align: left;
@@ -19,10 +19,21 @@
 			}
 			td {
 				border: 1px solid gray;
-				min-width: 80px;
+				min-width: 120px;
 				text-align: center;
+				overflow: hidden;
 				&:first-child {
 					text-align: left;
+				}
+				button {
+					border-radius: 10px;
+					border: none;
+					padding: 0 10px;
+					color: red;
+					&:hover {
+						transform: scale(1.1);
+						background-color: cornflowerblue;
+					}
 				}
 			}
 		}

@@ -17,12 +17,23 @@ const Cart = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>{props.id}</td>
-						<td>{props.name}</td>
-						<td>{props.quantity}</td>
-						<td>sample</td>
-					</tr>
+					{props.datas.map((data) => {
+						return (
+							<tr key={data.id}>
+								<td>{data.id}</td>
+								<td>{data.name}</td>
+								<td>{data.quantity}</td>
+								<td>
+									<button onClick={() => props.dispatch({ type: "수량증가" })}>
+										+
+									</button>
+									<button onClick={() => props.dispatch({ type: "수량감소" })}>
+										-
+									</button>
+								</td>
+							</tr>
+						);
+					})}
 				</tbody>
 			</table>
 		</div>
@@ -31,9 +42,7 @@ const Cart = (props) => {
 
 const reduxProps = (data) => {
 	return {
-		id: data[0].id,
-		name: data[0].name,
-		quantity: data[0].quantity,
+		datas: data,
 	};
 };
 
