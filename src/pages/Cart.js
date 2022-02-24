@@ -2,8 +2,10 @@ import "./Cart.scss";
 import React from "react";
 import Navbar from "../components/Navbar";
 import { connect } from "react-redux";
+import Notice from "../components/Notice";
 
 const Cart = (props) => {
+	console.log(props);
 	return (
 		<div className="cart-container">
 			<Navbar></Navbar>
@@ -17,7 +19,7 @@ const Cart = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{props.datas.map((data) => {
+					{props.장바구니.map((data) => {
 						return (
 							<tr key={data.id}>
 								<td>{data.id}</td>
@@ -36,13 +38,19 @@ const Cart = (props) => {
 					})}
 				</tbody>
 			</table>
+			{props.이벤트stateReducer ? <Notice>Hello</Notice> : null}
+			<button onClick={() => props.dispatch({ type: "이벤트안보기" })}>
+				다시보지않기
+			</button>
 		</div>
 	);
 };
 
 const reduxProps = (data) => {
+	console.log(data);
 	return {
-		datas: data,
+		장바구니: data.reducer,
+		이벤트stateReducer: data.이벤트stateReducer,
 	};
 };
 
