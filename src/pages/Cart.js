@@ -26,10 +26,24 @@ const Cart = (props) => {
 								<td>{data.name}</td>
 								<td>{data.quantity}</td>
 								<td>
-									<button onClick={() => props.dispatch({ type: "수량증가" })}>
+									<button
+										onClick={() =>
+											props.dispatch({
+												type: "수량증가",
+												payload: { id: data.id, test: "moya" },
+											})
+										}
+									>
 										+
 									</button>
-									<button onClick={() => props.dispatch({ type: "수량감소" })}>
+									<button
+										onClick={() =>
+											props.dispatch({
+												type: "수량감소",
+												payload: { id: data.id, test: "moya" },
+											})
+										}
+									>
 										-
 									</button>
 								</td>
@@ -38,16 +52,20 @@ const Cart = (props) => {
 					})}
 				</tbody>
 			</table>
-			{props.이벤트stateReducer ? <Notice>Hello</Notice> : null}
-			<button onClick={() => props.dispatch({ type: "이벤트안보기" })}>
-				다시보지않기
-			</button>
+			{props.이벤트stateReducer ? <Notice>10% Coupon</Notice> : null}
+			{props.이벤트stateReducer ? (
+				<button
+					className="btn btn-danger"
+					onClick={() => props.dispatch({ type: "이벤트안보기" })}
+				>
+					다시보지않기
+				</button>
+			) : null}
 		</div>
 	);
 };
 
 const reduxProps = (data) => {
-	console.log(data);
 	return {
 		장바구니: data.reducer,
 		이벤트stateReducer: data.이벤트stateReducer,

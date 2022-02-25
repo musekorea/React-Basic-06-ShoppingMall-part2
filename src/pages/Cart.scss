@@ -1,10 +1,18 @@
 .cart-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.notice {
+		width: 100%;
+	}
 	.table1 {
 		width: 100vh;
 		margin-top: 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		padding: 20px;
 		tr {
 			display: flex;

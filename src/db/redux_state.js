@@ -8,15 +8,21 @@ const 초기데이터 = [
 const reducer = (state = 초기데이터, 변경) => {
 	const copy초기데이터 = [...state];
 	if (변경.type === "수량증가") {
-		copy초기데이터[0].quantity += 1;
+		copy초기데이터[변경.payload.id].quantity += 1;
 		return copy초기데이터;
 	} else if (변경.type === "수량감소") {
-		if (copy초기데이터[0].quantity <= 0) {
-			copy초기데이터[0].quantity = 0;
+		if (copy초기데이터[변경.payload.id].quantity <= 0) {
+			copy초기데이터[변경.payload.id].quantity = 0;
 			return copy초기데이터;
 		}
-		copy초기데이터[0].quantity -= 1;
+		copy초기데이터[변경.payload.id].quantity -= 1;
 		return copy초기데이터;
+	} else if (변경.type === "주문") {
+		const id = state.length;
+		const name = 변경.payload.name;
+		const quantity = 1;
+		state.push({ id, name, quantity });
+		return state;
 	} else {
 		return state;
 	}

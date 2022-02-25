@@ -3,20 +3,26 @@ import Navbar from "../components/Navbar";
 import Notice from "../components/Notice";
 import "./DetailPage.scss";
 import Tab from "../components/Tab";
-
-const DetailPage = ({ DB, stock, setStock }) => {
+import { connect } from "react-redux";
+//DB
+const DetailPage = (props) => {
 	const { params } = useParams();
-	const data = DB[params];
-	const currentStock = stock[params];
+	const data = props.DB[params];
+	const currentStock = props.stock[params];
+
 	const handleOrder = (e) => {
+		props.dispatch({
+			type: "주문",
+			payload: { name: data.title, quantity: 1 },
+		});
 		const newStock = [];
-		stock.forEach((st, index) => {
+		props.stock.forEach((st, index) => {
 			if (Number(params) === Number(index)) {
 				newStock.push(st - 1);
 			} else {
 				newStock.push(st);
 			}
-			setStock((prev) => newStock);
+			props.setStock((prev) => newStock);
 		});
 	};
 	return (
@@ -38,4 +44,11 @@ const DetailPage = ({ DB, stock, setStock }) => {
 	);
 };
 
-export default DetailPage;
+const reduxProps = (data) => {
+	return {
+		장바구니: data.reducer,
+		이벤트stateReducer: data.이벤트stateReducer,
+	};
+};
+
+export default connect(reduxProps)(DetailPage);
