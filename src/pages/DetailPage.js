@@ -13,7 +13,7 @@ const DetailPage = (props) => {
 	const handleOrder = (e) => {
 		props.dispatch({
 			type: "주문",
-			payload: { name: data.title, quantity: 1 },
+			payload: { id: data.id, name: data.title, quantity: 1 },
 		});
 		const newStock = [];
 		props.stock.forEach((st, index) => {
