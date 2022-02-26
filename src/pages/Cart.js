@@ -1,11 +1,14 @@
 import "./Cart.scss";
 import React from "react";
 import Navbar from "../components/Navbar";
-import { connect } from "react-redux";
 import Notice from "../components/Notice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Cart = (props) => {
-	console.log(props);
+const Cart = () => {
+	const cartDB = useSelector((data) => data.reducer);
+	const event_reducer = useSelector((data) => data.이벤트stateReducer);
+	const dispatch = useDispatch();
+
 	return (
 		<div className="cart-container">
 			<Navbar></Navbar>
@@ -19,7 +22,7 @@ const Cart = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{props.장바구니.map((data) => {
+					{cartDB.map((data) => {
 						return (
 							<tr key={data.id}>
 								<td>{data.id}</td>
@@ -28,7 +31,7 @@ const Cart = (props) => {
 								<td>
 									<button
 										onClick={() =>
-											props.dispatch({
+											dispatch({
 												type: "수량증가",
 												payload: { id: data.id, test: "moya" },
 											})
@@ -38,7 +41,7 @@ const Cart = (props) => {
 									</button>
 									<button
 										onClick={() =>
-											props.dispatch({
+											dispatch({
 												type: "수량감소",
 												payload: { id: data.id, test: "moya" },
 											})
@@ -52,11 +55,11 @@ const Cart = (props) => {
 					})}
 				</tbody>
 			</table>
-			{props.이벤트stateReducer ? <Notice>10% Coupon</Notice> : null}
-			{props.이벤트stateReducer ? (
+			{event_reducer ? <Notice>10% Coupon</Notice> : null}
+			{event_reducer ? (
 				<button
 					className="btn btn-danger"
-					onClick={() => props.dispatch({ type: "이벤트안보기" })}
+					onClick={() => dispatch({ type: "이벤트안보기" })}
 				>
 					다시보지않기
 				</button>
@@ -65,11 +68,4 @@ const Cart = (props) => {
 	);
 };
 
-const reduxProps = (data) => {
-	return {
-		장바구니: data.reducer,
-		이벤트stateReducer: data.이벤트stateReducer,
-	};
-};
-
-export default connect(reduxProps)(Cart);
+export default Cart;
